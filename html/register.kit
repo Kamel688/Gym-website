@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link
+                href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+                rel="stylesheet"
+            />
+        <script src="https://kit.fontawesome.com/6ee12b0358.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="/dist/css/main.min.css">
+    </head>
+<body>
+    <!-- @include nav.kit-->
+    <!-- @include header.kit-->
+    <section class="register section-padding">
+        <form action="" class="register__form">
+            <table>
+                <tr>
+                    <td class="label">Imię</td>
+                    <td class="input"><input type="name" id="name" name="name"></td>
+                </tr>
+                <tr class="register__form-message register__form-message-name">
+                    <td></td>
+                    <td class="register__form-message-item">Wprowadź prawidłowe imię</td>
+                </tr>
+                <tr>
+                    <td class="label">Nazwisko</td>
+                    <td class="input"><input type="text" id="surname" name="surname"></td>
+                </tr>
+                <tr class="register__form-message register__form-message-surname">
+                    <td></td>
+                    <td class="register__form-message-item">Wprowadź prawidłowe nazwisko</td>
+                </tr>
+                <tr>
+                    <td class="label">Adres e-mail</td>
+                    <td class="input"><input type="email" id="email" name="email"></td>
+                </tr>
+                <tr class="register__form-message register__form-message-email">
+                    <td></td>
+                    <td class="register__form-message-item">Wprowadź prawidłowy e-mail</td>
+                </tr>
+                <tr>
+                    <td class="label">Hasło</td>
+                    <td class="input"><input type="password" id="password" name="password"></td>
+                </tr>
+                <tr class="register__form-message register__form-message-password-uppercase">
+                    <td></td>
+                    <td class="register__form-message-item">Hasło musi zawierać przynajmniej jedną dużą literę</td>
+                </tr>
+                <tr class="register__form-message register__form-message-password-lowercase">
+                    <td></td>
+                    <td class="register__form-message-item">Hasło musi zawierać przynajmniej jedną dużą literę</td>
+                </tr>
+                <tr class="register__form-message register__form-message-password-one-digit">
+                    <td></td>
+                    <td class="register__form-message-item">Hasło musi zawierać przynajmniej jedną cyfrę</td>
+                </tr>
+                <tr class="register__form-message register__form-message-password-special-symbol">
+                    <td></td>
+                    <td class="register__form-message-item">Hasło musi zawierać znak specjalny</td>
+                </tr>
+                <tr class="register__form-message register__form-message-password-length">
+                    <td></td>
+                    <td class="register__form-message-item">Hasło musi zawierać od 10 do 16 znaków</td>
+                </tr>
+                <tr class="register__form-message register__form-message-password-white-space">
+                    <td></td>
+                    <td class="register__form-message-item">Hasło nie może zawierać spacji</td>
+                </tr>
+                <tr>
+                    <td class="label">Powtórz hasło</td>
+                    <td class="input"><input type="password" id="repeat-password" name="repeat-password"></td>
+                </tr>
+                <tr class="register__form-message register__form-message-repeat-password">
+                    <td></td>
+                    <td class="register__form-message-item">Hasła nie są identyczne</td>
+                </tr>
+            </table>
+            <a class="register__form-btn btn-animation">Uwtórz konto</a>
+            <p class="register__form-last-message">Twoje dane nie zostały wprowadzone prawidłowo</p>
+        </form>
+
+         <div class="register__correct-box">
+                <p class="register__correct-box-title">Rejestracja zakończona</p>
+                <i class="fa-regular fa-circle-check"></i>
+            <p class="register__correct-box-message">Twoje konto zostało utworzone</p>
+            <a href="/login.html" class="register__correct-box-btn btn-animation">Zaloguj</a>
+         </div>
+    </section>
+    <!-- @include footer.kit-->
+    <script src="/dist/js/main.min.js"></script>
+    <script src="/dist/js/register.js"></script>
+</body>
+</html>

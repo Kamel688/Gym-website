@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link
+                href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+                rel="stylesheet"
+            />
+        <script src="https://kit.fontawesome.com/6ee12b0358.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="/dist/css/main.min.css">
+    </head>
+<body>
+    <nav class="navbar">
+    <div class="navbar__list">
+        <a href="/index.html#home" class="navbar__list-item">Home</a>
+        <a href="/index.html#about-us" class="navbar__list-item">O nas</a>
+        <a href="/index.html#location" class="navbar__list-item">Lokalizacja</a>
+        <a href="/index.html#offer" class="navbar__list-item">Oferta</a>
+        <a href="/index.html#team" class="navbar__list-item">Zespół</a>
+        <a href="/index.html#reviews" class="navbar__list-item">Opinie</a>
+        <a href="/index.html#contact" class="navbar__list-item">Kontakt</a>
+    </div>
+
+    <div class="navbar__logo">
+        <i class="fa-solid fa-hand-fist"></i>
+        <p class="navbar__logo-text"><span class="navbar__logo-span">Heroes</span> Club</p>
+    </div>
+
+    <div class="navbar__desktop-list">
+        <a href="/index.html#home" class="navbar__desktop-list-item active">Home</a>
+        <a href="/index.html#about-us" class="navbar__desktop-list-item">O nas</a>
+        <a href="/index.html#location" class="navbar__desktop-list-item">Lokalizacja</a>
+        <a href="/index.html#offer" class="navbar__desktop-list-item">Oferta</a>
+        <a href="/index.html#team" class="navbar__desktop-list-item">Zespół</a>
+        <a href="/index.html#reviews" class="navbar__desktop-list-item">Opinie</a>
+        <a href="/index.html#contact" class="navbar__desktop-list-item">Kontakt</a>
+        <a href="/login.html"><i class="fa-solid fa-right-to-bracket"></i></a>
+    </div>
+    <button class="burger-btn">
+        <div class="burger-btn__box">
+            <div class="burger-btn__bars"></div>
+        </div>
+    </button>
+</nav>
+    <header class="header" id="home">
+    <div class="header__box">
+        <h1 class="header__box-title"><span class="header__box-span">Heroes</span> Club</h1>
+        <p class="header__box-text">Jedyne takie miejsce na świecie</p>
+        <button class="header__box-btn btn-animation"><a href="#">Poznaj ofertę</a></button>
+    </div>
+    <div class="header__shadow"></div>
+</header>
+
+    <section class="register section-padding">
+        <form action="" class="register__form">
+            <table>
+                <tr>
+                    <td class="label">Imię</td>
+                    <td class="input"><input type="name" id="name" name="name"></td>
+                </tr>
+                <tr class="register__form-message register__form-message-name">
+                    <td></td>
+                    <td class="register__form-message-item">Wprowadź prawidłowe imię</td>
+                </tr>
+                <tr>
+                    <td class="label">Nazwisko</td>
+                    <td class="input"><input type="text" id="surname" name="surname"></td>
+                </tr>
+                <tr class="register__form-message register__form-message-surname">
+                    <td></td>
+                    <td class="register__form-message-item">Wprowadź prawidłowe nazwisko</td>
+                </tr>
+                <tr>
+                    <td class="label">Adres e-mail</td>
+                    <td class="input"><input type="email" id="email" name="email"></td>
+                </tr>
+                <tr class="register__form-message register__form-message-email">
+                    <td></td>
+                    <td class="register__form-message-item">Wprowadź prawidłowy e-mail</td>
+                </tr>
+                <tr>
+                    <td class="label">Hasło</td>
+                    <td class="input"><input type="password" id="password" name="password"></td>
+                </tr>
+                <tr class="register__form-message register__form-message-password-uppercase">
+                    <td></td>
+                    <td class="register__form-message-item">Hasło musi zawierać przynajmniej jedną dużą literę</td>
+                </tr>
+                <tr class="register__form-message register__form-message-password-lowercase">
+                    <td></td>
+                    <td class="register__form-message-item">Hasło musi zawierać przynajmniej jedną dużą literę</td>
+                </tr>
+                <tr class="register__form-message register__form-message-password-one-digit">
+                    <td></td>
+                    <td class="register__form-message-item">Hasło musi zawierać przynajmniej jedną cyfrę</td>
+                </tr>
+                <tr class="register__form-message register__form-message-password-special-symbol">
+                    <td></td>
+                    <td class="register__form-message-item">Hasło musi zawierać znak specjalny</td>
+                </tr>
+                <tr class="register__form-message register__form-message-password-length">
+                    <td></td>
+                    <td class="register__form-message-item">Hasło musi zawierać od 10 do 16 znaków</td>
+                </tr>
+                <tr class="register__form-message register__form-message-password-white-space">
+                    <td></td>
+                    <td class="register__form-message-item">Hasło nie może zawierać spacji</td>
+                </tr>
+                <tr>
+                    <td class="label">Powtórz hasło</td>
+                    <td class="input"><input type="password" id="repeat-password" name="repeat-password"></td>
+                </tr>
+                <tr class="register__form-message register__form-message-repeat-password">
+                    <td></td>
+                    <td class="register__form-message-item">Hasła nie są identyczne</td>
+                </tr>
+            </table>
+            <a class="register__form-btn btn-animation">Uwtórz konto</a>
+            <p class="register__form-last-message">Twoje dane nie zostały wprowadzone prawidłowo</p>
+        </form>
+
+         <div class="register__correct-box">
+                <p class="register__correct-box-title">Rejestracja zakończona</p>
+                <i class="fa-regular fa-circle-check"></i>
+            <p class="register__correct-box-message">Twoje konto zostało utworzone</p>
+            <a href="/login.html" class="register__correct-box-btn btn-animation">Zaloguj</a>
+         </div>
+    </section>
+    <footer class="footer">
+    <div class="wrapper">
+         <div class="footer__box">
+             <div class="footer__box-info">
+                 <div class="footer__box-info-list">
+                     <div class="footer__box-info-list-item">Plany treningowe i dietetyczne</div>
+                     <div class="footer__box-info-list-item">Trening personalny Kraków</div>
+                     <div class="footer__box-info-list-item">Trening personalny Katowice</div>
+                     <div class="footer__box-info-list-item">Trening personalny online</div>
+                     <div class="footer__box-info-list-item">Sklep</div>
+                 </div>
+                 <div class="footer__box-info-list">
+                     <div class="footer__box-info-list-item">Plany treningowe i dietetyczne</div>
+                     <div class="footer__box-info-list-item">Trening personalny Kraków</div>
+                     <div class="footer__box-info-list-item">Trening personalny Katowice</div>
+                     <div class="footer__box-info-list-item">Trening personalny online</div>
+                     <div class="footer__box-info-list-item">Sklep</div>
+                 </div>
+                 <div class="footer__box-info-list">
+                     <div class="footer__box-info-list-item">Plany treningowe i dietetyczne</div>
+                     <div class="footer__box-info-list-item">Trening personalny Kraków</div>
+                     <div class="footer__box-info-list-item">Trening personalny Katowice</div>
+                     <div class="footer__box-info-list-item">Trening personalny online</div>
+                     <div class="footer__box-info-list-item">Sklep</div>
+                 </div>
+             </div>
+             <h3 class="footer__box-heading">Social Media</h3>
+             <div class="footer__box-social">
+                 <a href="https://www.facebook.com/" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                 <a href="https://www.instagram.com/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                 <a href="https://twitter.com/?lang=pl" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+             </div>
+         </div>
+     </div>
+     <hr>
+     <div class="footer__logo">
+         <p class="footer__logo-text"><span class="footer__logo-color">Heroes</span> Club &copy; <span class="footer__logo-year"></span></p>
+     </div>
+ </footer>
+    <script src="/dist/js/main.min.js"></script>
+    <script src="/dist/js/register.js"></script>
+</body>
+</html>

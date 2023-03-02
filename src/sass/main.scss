@@ -1,0 +1,1321 @@
+@use "_colors.scss" as *;
+@use "_mixins.scss" as *;
+@use "_components.scss" as *;
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	font-size: 62.5%;
+	scroll-behavior: smooth;
+	scroll-padding-top: 78px;
+}
+
+body::-webkit-scrollbarY{
+	display: none;
+}
+
+body {
+	color: #333;
+	font-family: "Montserrat", sans-serif;
+	overflow-x: hidden;
+}
+
+.navbar-color {
+	background-color: rgba(0,0,0,0.8);
+}
+
+//NAV
+.navbar {
+	position: fixed;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 2em 0;
+	width: 100%;
+	overflow: hidden;
+	transition: background-color 0.3s;
+	z-index: 10;
+	.active{
+		color: $main-color;
+	}
+	//logo
+	&__logo {
+		display: flex;
+		align-items: center;
+		padding: 0 2em;
+		color: $pure-white;
+		cursor: pointer;
+	}
+	&__logo-span {
+		color: $main-color;
+	}
+	&__logo-text {
+		margin-left: 0.8em;
+		font-size: 1.6rem;
+		text-transform: uppercase;
+	}
+	.fa-hand-fist {
+		font-size: 4rem;
+		transition: color 0.3s;
+		&:hover {
+			color: $main-color;
+		}
+	}
+
+
+	//mobile-list
+	&__list {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		transform: translateX(150%);
+		background-color: $pure-white;
+		opacity: 0;
+		transition: transform 0.3s, opacity 0.3s;
+	}
+
+	&__list-item {
+		position: relative;
+		padding: 0.5em 1em;
+		margin: 0.5em 0;
+		font-size: 2.5rem;
+		color: $black;
+		text-decoration: none;
+		text-transform: uppercase;
+
+		&::before {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 100%;
+			width: 3px;
+			transform: scale(0);
+			background: $main-color;
+			transition: transform 0.3s;
+		}
+
+		&:hover::before {
+			transform: scale(1);
+		}
+	}
+
+	//desktop-list
+	&__desktop-list {
+		display: none;
+	}
+}
+
+.show-navbar {
+	transform: translateX(0);
+	opacity: 1;
+}
+
+//HEADER
+.header {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	height: 50vh;
+	color: $pure-white;
+	@include backgroundImg("/dist/img/header-big.jpg");
+	background-attachment: unset;
+
+	&__shadow {
+		@include shadow;
+	}
+
+	&__box {
+		padding: 0 0.5em;
+		text-align: center;
+	}
+	&__box-title {
+		margin-bottom: 0.2em;
+		font-size: 3.4rem;
+	}
+	&__box-text {
+		font-size: 1.6rem;
+		margin-bottom: 1em;
+	}
+	&__box-span {
+		color: $main-color;
+	}
+	&__box-btn {
+		padding: 0.6em 1.2em;
+		color: $pure-white;
+		background: $main-gradient-color;
+		font-size: 1.5rem;
+		border: none;
+		border-radius: 8px;
+		transition: background 1s, color 1s;
+		z-index: 100;
+		cursor: pointer;
+
+		a {
+			color: $pure-white;
+			text-decoration: none;
+		}
+	}
+}
+
+//main
+.main {
+	.about-us {
+		&__box {
+			margin-bottom: 2em;
+		}
+		&__img {
+			width: 100%;
+			border-radius: 8px;
+		}
+
+		&__title {
+			margin: 0.5em 0;
+			font-size: 1.8rem;
+		}
+		&__text {
+			font-size: 1.5rem;
+		}
+	}
+
+	.location {
+		@include backgroundImg("/dist/img/location_1280.jpg");
+
+		&__shadow {
+			@include shadow();
+		}
+
+		.section-heading {
+			color: $pure-white;
+		}
+		&__boxes {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+
+		&__box {
+			margin-bottom: 4em;
+			max-width: 300px;
+			background-color: $pure-white;
+			border-radius: 8px;
+			overflow: hidden;
+		}
+		&__box-img {
+			width: 100%;
+		}
+		&__box-text {
+			display: flex;
+			flex-direction: column;
+			padding: 1em 1.4em;
+		}
+		&__title {
+			text-align: center;
+			font-size: 2rem;
+		}
+		&__text {
+			margin: 0.7em 0;
+			font-size: 1.6rem;
+		}
+		&__address-text {
+			margin-bottom: 0.5em;
+			font-size: 1.9rem;
+			font-weight: bold;
+			text-align: center;
+		}
+		&__address {
+			font-size: 1.6rem;
+			text-align: center;
+		}
+		&__btn {
+			margin: 1em 0 0.6em 0;
+			padding: 0.8em 1.6em;
+			font-size: 1.5rem;
+			background-image: $main-gradient-color;
+			color: $pure-white;
+			text-align: center;
+			text-decoration: none;
+			border-radius: 8px;
+			&::before {
+				width: 200px;
+			}
+		}
+		.fa-location-dot {
+			font-size: 1.6rem;
+		}
+	}
+
+	.offer {
+		&__cards {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+		&__card {
+			display: flex;
+			flex-direction: column;
+			margin-bottom: 3em;
+			padding: 2em 3em;
+			max-width: 340px;
+			box-shadow: 3px 3px 10px #2e2e2e;
+			border-radius: 8px;
+			transition: transform 0.3s;
+
+			&:hover {
+				transform: scale(1.05);
+			}
+		}
+		&__card-title {
+			font-size: 2.8rem;
+			font-weight: 400;
+			text-align: center;
+		}
+		&__card-price {
+			margin: 0.5em 0;
+			width: 100%;
+			font-size: 3.2rem;
+			font-weight: 700;
+			text-align: center;
+		}
+		&__card-option {
+			position: relative;
+			margin-bottom: 1em;
+			font-size: 1.6rem;
+
+			&--gray {
+				color: $gray;
+			}
+		}
+		&__card-btn {
+			position: relative;
+			margin-bottom: 0.3em;
+			padding: 0.8em 1.6em;
+			width: 75%;
+			align-self: center;
+			border: none;
+			border-radius: 8px;
+			background-color: $light-gray;
+			font-size: 1.5rem;
+			box-shadow: 4px 5px 10px #999999;
+			transition: color 0.6s box-shadow 0.6s;
+			overflow: hidden;
+			cursor: pointer;
+			z-index: 0;
+
+			&::before {
+				content: "";
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 150%;
+				height: 150%;
+				background-image: $main-gradient-color-hover;
+				color: white;
+				opacity: 0;
+				border-radius: 8px;
+				transition: 0.6s;
+				z-index: -1;
+			}
+
+			&:hover::before {
+				opacity: 1;
+			}
+
+			&--highlight {
+				background-image: $main-gradient-color;
+				box-shadow: 4px 4px 10px $btn-shadow;
+			}
+			&:hover {
+				color: $pure-white;
+				box-shadow: 2px 2px 10px black;
+			}
+		}
+
+		.fa-check {
+			margin-right: 0.2em;
+			color: $green-color;
+		}
+
+		.fa-xmark {
+			margin-right: 0.2em;
+			color: $red-color;
+		}
+	}
+
+	.reviews {
+		position: relative;
+		.wrapper {
+			overflow-x: auto;
+			&::-webkit-scrollbar{
+				display: none;
+			}
+		}
+		&__container{
+			position: relative;
+			margin: 0 auto;
+			width: 100%;
+			max-width: 1200px;
+		}
+		&__cards{
+			display: flex;
+			padding: 1.5em 1.3em;
+			transition: transform 0.3s;
+
+		}
+		&__card{
+			position: relative;
+			margin-top: 6em;
+			margin-bottom: 1em;
+			margin-right: 4em;
+			padding: 3em;
+			min-width: 100%;
+			box-shadow: 3px 3px 10px #2e2e2e;
+			border-radius: 8px;
+			transition: transform 0.3s;
+			&:hover{
+				transform: scale(0.95);
+			}
+		}
+		
+		&__card-img{
+			position: absolute;
+			top: 0;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			width: 90px;
+			height: 90px;
+			border-radius: 50%;
+			object-fit: cover;
+		}
+		&__card-text{
+			margin-top: 2em;
+			text-align: center;
+			overflow: hidden;
+		}
+		&__card-name{
+			margin-top: 1.5em;
+			font-size: 1.7rem;
+			font-weight: 800;
+		}
+		&__card-opinion{
+			margin: 1em 0;
+			font-size: 1.45rem;
+		}
+		.fa-star{
+			margin-top: 0.2em;
+			font-size: 2.4rem;
+			color: $main-color;
+		}
+		&__btn{
+			position: absolute;
+			top: 55%;
+			transform: translateY(-50%);
+			width: 25px;
+			height: 25px;
+			border-top: 4px solid $main-color;
+			border-left: 4px solid $main-color;
+			border-right: none;
+			border-bottom: none;
+			cursor: pointer;
+			outline: none;
+			&-left{
+				left: -20px;
+				transform: rotate(-45deg);
+			}
+			&-right{
+				right: -20px;
+				transform: rotate(135deg);
+			}
+		}
+	}
+	
+	.team{
+		@include backgroundImg("/dist/img/team.jpg");
+		.section-heading{
+			color: $pure-white;
+		}
+		//potrzebny do odpowiedniego rozmieszczenia przycisków (wrapper je zakrywa właściwościa overflow)
+		&__container{
+			position: relative;
+			margin: 0 auto;
+			width: 100%;
+			max-width: 1200px;
+		}
+		&__shadow {
+			@include shadow();
+			background-color: rgba(22, 11, 0, 0.5);
+		}
+		.wrapper {
+			overflow-x: auto;
+			&::-webkit-scrollbar{
+				display: none;
+			}
+		}
+		&__cards{
+			display: flex;
+			padding: 1.5em 1em;
+			transition: transform 0.3s;
+		}
+		&__card{
+			margin-right: 4em;
+			min-width: 100%;
+			background-color: $pure-white;
+			box-shadow: 3px 3px 10px #2e2e2e;
+			border-radius: 8px;
+			overflow: hidden;
+			transition: transform 0.3s;
+			&:hover{
+				transform: scale(0.95);
+			}
+		}
+		&__card-top{
+			position: relative;
+			padding: 6em;
+			background-image: $main-gradient-color;
+			z-index: 0;
+
+		}
+		&__card-top-img{
+			position: absolute;
+			left: 50%;
+			bottom: -40px;
+			transform: translateX(-50%);
+			width: 100px;
+			height: 100px;
+			border: 4px solid $pure-white;
+			border-radius: 50%;
+			object-fit: cover;
+			z-index: 1;
+		}
+		&__card-bottom{
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			padding: 2em;
+			
+		}
+		&__card-bottom-name{
+			margin: 2em 0 1em 0;
+			font-size: 1.9rem;
+			font-weight: bold;
+			text-align: center;
+		}
+		&__card-bottom-text{
+			font-size: 1.5rem;
+		}
+		&__card-bottom-social{
+			margin-top: 0.5em;
+			font-size: 3.2rem;
+		}
+		
+		&__btn{
+			position: absolute;
+			top: 55%;
+			transform: translateY(-50%);
+			width: 25px;
+			height: 25px;
+			border-top: 4px solid $main-color;
+			border-left: 4px solid $main-color;
+			cursor: pointer;
+			&-left{
+				left: -20px;
+				transform: rotate(-45deg);
+			}
+			&-right{
+				right: -20px;
+				transform: rotate(135deg);
+			}
+		}
+	
+		//socials
+		a {
+			margin: 0 0.5em;
+		}
+		.fa-facebook-f {
+			color: $facebook-color;
+		}
+		.fa-instagram{
+			color: $instagram-color;
+		}
+		.fa-twitter{
+			color: $twitter-color;
+		}
+		.fa-brands {
+			transition: color 0.3s, transform 0.3s;
+		}
+		.fa-facebook-f:hover {
+			transform: scale(1.3);
+		}
+		.fa-instagram:hover{
+			transform: scale(1.3);
+		}
+		.fa-twitter:hover{
+			transform: scale(1.3);
+		}
+	}
+
+	.contact {
+		background-color: $light-gray;
+		&__form {
+			display: flex;
+			flex-direction: column;
+		}
+		&__form-btn {
+			margin-top: 1em;
+			padding: 0.8em;
+			width: 100%;
+			align-self: flex-end;
+			border-radius: 8px;
+			border: none;
+			background-image: $main-gradient-color;
+			font-size: 1.5rem;
+			font-family: bold;
+			text-transform: uppercase;
+			cursor: pointer;
+		}
+		&__form-error {
+			margin-bottom: 0.2em;
+			color: $red-color;
+			font-size: 1.4rem;
+			text-transform: uppercase;
+		}
+		&__form-length {
+			font-size: 1.3rem;
+			text-align: right;
+			color: $gray;
+		}
+		label {
+			margin-bottom: 0.5em;
+			font-size: 1.6rem;
+			text-transform: uppercase;
+		}
+		input {
+			margin-bottom: 0.5em;
+			padding: 0.6em 1em;
+			border-radius: 8px;
+			border: none;
+			font-size: 1.6rem;
+		}
+		textarea {
+			padding: 0.6em 1em;
+			resize: vertical;
+			min-height: 150px;
+			max-height: 300px;
+			border-radius: 8px;
+			font-size: 1.6rem;
+		}
+	}
+}
+
+.footer {
+	padding-top: 3em;
+	background-color: $footer-color;
+	color: $pure-white;
+	font-size: 1.6rem;
+
+	&__box {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+	&__box-info-list {
+		margin-bottom: 1.5em;
+	}
+	&__box-info-list-item {
+		margin-bottom: 0.7em;
+		cursor: pointer;
+		transition: 0.3s;
+	}
+	&__box-info-list-item:hover {
+		color: $main-color;
+	}
+	&__box-heading {
+		margin-bottom: 0.5em;
+		font-size: 2.2rem;
+	}
+	&__box-social {
+		display: flex;
+		margin-left: 1em;
+		margin-bottom: 1em;
+		font-size: 3.4rem;
+
+		.fa-brands {
+			transition: color 0.3s;
+		}
+		a {
+			margin-right: 1em;
+			color: $pure-white;
+		}
+		.fa-facebook-f:hover {
+			color: $facebook-color;
+		}
+		.fa-instagram:hover {
+			color: $instagram-color;
+		}
+		.fa-twitter:hover {
+			color: $twitter-color;
+		}
+	}
+	&__logo {
+		padding: 1em 0;
+		font-size: 1.8rem;
+		text-align: center;
+	}
+	&__logo-color {
+		color: $main-color;
+	}
+}
+
+.localization {
+	&__box {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		padding: 0 1em;
+		margin-bottom: 4em;
+		iframe {
+			margin-bottom: 3em;
+			width: 100%;
+			max-width: 1300px;
+			border-radius: 8px;
+			transition: transform 0.3s;
+		}
+	}
+	&__box-btn{
+		padding: 1em;
+		width: 100%;
+		max-width: 200px;
+		border: none;
+		border-radius: 8px;
+		background-image: $main-gradient-color;
+		color: $black;
+		font-size: 1.4rem;
+		text-align: center;
+		text-transform: uppercase;
+		text-decoration: none;
+		letter-spacing: 1px;
+		font-family: bold;
+		cursor: pointer;
+	}
+}
+
+.login{
+	display: flex;
+	justify-content: center;
+	&__form{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		padding: 2em 4em;
+		background-color: $light-gray;
+		box-shadow: 3px 3px 10px #2e2e2e;
+		border-radius: 8px;
+	}
+	&__form-title{
+		margin-top: 0.5em;
+		font-size: 1.6rem;
+		text-align: center;
+		text-transform: uppercase;
+	}
+	&__form-img{
+		max-width: 200px;
+	}
+	&__form-btn{
+		padding: 1em;
+		width: 100%;
+		border: none;
+		border-radius: 8px;
+		background-image: $main-gradient-color;
+		font-family: bold;
+		text-transform: uppercase;
+		font-weight: 700;
+		font-size: 1.5rem;
+		letter-spacing: 0.5px;
+		cursor: pointer;
+	}
+	&__form-btn-white{
+		padding: 0.8em;
+		width: 100%;
+		border-radius: 8px;
+		background-color: $pure-white;
+		font-size: 1.5rem;
+		transition: background-color 0.3s;
+		text-decoration: none;
+		text-align: center;
+		color: $black;
+		&:hover{
+			background-color: $gray;
+		}
+	}
+	&__form-text{
+		margin: 0.8em 0;
+		font-size: 1.4rem;
+	}
+	input{
+		margin: 0.8em 0;
+		padding: 1em;
+		border-radius: 6px;
+		border: none;
+		font-size: 1.5rem;
+	}
+}
+
+.register{
+	font-size: 1.6rem;
+	&__form{
+		display: flex;
+		flex-direction: column;
+	}
+	&__form-btn{
+		margin-top: 1em;
+		padding: 0.8em 1.6em;
+		align-self: center;
+		background-image: $main-gradient-color;
+		border: none;
+		border-radius: 8px;
+		font-size: 1.5rem;
+		text-transform: uppercase;
+		font-family: bold;
+		letter-spacing: 0.4px;
+		cursor: pointer;
+	}
+	&__form-message{
+		display: none;
+	}
+	&__form-last-message{
+		display: none;
+		margin-top: 1em;
+		color: $red-color;
+		font-size: 1.7rem;
+		text-align: center;
+	}
+	&__form-message-item{
+		padding-left: 0.5em;
+		color: $red-color;
+		font-size: 1.5rem;
+	}
+	&__show-message{
+		display: table-row;
+	}
+	&__correct-shadow{
+		box-shadow: 0px 0px 10px green;
+	}
+	&__correct-box{
+		display: none;
+		margin-top: 2em;
+
+	}
+	&__correct-box-title{
+		position: relative;
+		font-size: 2.6rem;
+		font-weight: 700;
+		&::before{
+			content: '';
+			position: absolute;
+			left: -50%;
+			bottom: -20px;
+			height: 2px;
+			width: 200%;
+			background-image: $main-gradient-color;
+		}
+	}
+	&__correct-box-message{
+		font-size: 1.9rem;
+	}
+	&__correct-box-btn{
+		margin-top: 1.5em;
+		padding: 0.9em 1.8em;
+		border: none;
+		border-radius: 8px;
+		background-image: $main-gradient-color;
+		color: $black;
+		font-size: 1.4rem;
+		text-transform: uppercase;
+		text-decoration: none;
+		cursor: pointer;
+	}
+	.fa-circle-check{
+		margin: 0.7em 0 0.4em 0;
+		font-size: 7rem;
+		color: $green-color;
+	}
+
+	&__wrong-shadow{
+		box-shadow: 0px 0px 10px red;
+	}
+	&__show{
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+	&__hide{
+		display: none;
+	}
+	table{
+		width: 100%;
+	}
+	td{
+		padding-bottom: 1.5em;
+	}
+	input{	
+		padding: 0.6em 1em;
+		width: 100%;
+		max-width: 400px;
+		font-size: 1.4rem;
+		border-radius: 8px;
+		border: 1px solid #999;
+		&:focus{
+			outline: none;
+		}
+	}
+	.label{
+		text-align: center;
+	}
+	.input{
+		width: 62%;
+	}
+
+}
+
+//-----------------------------------------------------------------------Media--------------------------------------------------------------------------------------
+
+
+@media(max-width: 576px){
+	.main{
+		.team{
+			&__btn{
+				top: 50%;
+				width: 23px;
+				height: 23px;
+			}
+		}
+		.reviews{
+			&__btn{
+				width: 23px;
+				height: 23px;
+			}
+		}
+	}
+}
+
+@media(max-width: 768px){
+	.header{
+		height: 70vh;
+	}
+}
+@media (max-width: 992px) {
+	.burger-btn {
+		padding: 0 2em;
+		background: none;
+		border: none;
+		cursor: pointer;
+		&__box {
+			position: relative;
+			width: 45px;
+			height: 25px;
+		}
+
+		&__bars,
+		&__bars::before,
+		&__bars::after {
+			position: absolute;
+			right: 0;
+			content: "";
+			width: 100%;
+			height: 3px;
+			background-color: $pure-white;
+			border-radius: 8px;
+			transition: width 0.3s, transform 0.2s, background-color 0.3s;
+		}
+
+		&__bars::before {
+			top: 12px;
+			width: 75%;
+		}
+
+		&__bars::after {
+			top: 24px;
+			width: 50%;
+		}
+	}
+	.burger-btn:hover {
+		.burger-btn__bars::before,
+		.burger-btn__bars::after {
+			width: 100%;
+		}
+
+		.burger-btn__bars,
+		.burger-btn__bars::before,
+		.burger-btn__bars::after {
+			background-color: $main-color;
+		}
+	}
+}
+
+
+
+
+@media (min-width: 576px) {
+	.main {
+		.about-us {
+			&__box {
+				display: flex;
+				justify-content: space-between;
+			}
+
+			&__box-img {
+				margin-right: 4em;
+				width: 40%;
+				&--right {
+					margin-right: 0;
+					margin-left: 0;
+					order: 1;
+				}
+			}
+
+			&__box-text {
+				width: 55%;
+			}
+
+			&__title {
+				font-size: 1.6rem;
+			}
+			&__text {
+				font-size: 1.4rem;
+			}
+		}
+		.contact{
+			&__form-btn{
+				max-width: 300px;
+			}
+		}
+	
+	}
+}
+
+@media (min-width: 768px) {
+	.header {
+		&__box-title {
+			font-size: 3.6rem;
+		}
+		&__box-text {
+			font-size: 1.8rem;
+		}
+		&__box-btn {
+			font-size: 1.6rem;
+		}
+	}
+	//main(768px)
+	.main {
+		.about-us {
+			&__title {
+				font-size: 1.8rem;
+			}
+			&__text {
+				font-size: 1.5rem;
+			}
+		}
+
+		.location {
+			&__boxes {
+				flex-direction: row;
+				justify-content: center;
+				flex-wrap: wrap;
+			}
+			&__box {
+				margin-right: 5em;
+				width: 42%;
+				max-width: 355px;
+			}
+		}
+	
+
+		.offer {
+			&__cards {
+				flex-direction: row;
+				justify-content: center;
+				flex-wrap: wrap;
+			}
+			&__card {
+				width: 44%;
+				margin-right: 4em;
+			}
+		}
+
+		.team{
+			&__cards{
+				padding-right: 5em;
+			}
+			&__card{
+				min-width: 50%;
+			}
+		}
+		.reviews{
+			&__cards{
+				padding-right: 5.3em;
+			}
+			&__card{
+				min-width: 50%;
+			}
+		}
+	}
+	.footer {
+		&__box-info {
+			display: flex;
+			padding: 0 2em;
+		}
+		&__box-info-list {
+			position: relative;
+			margin-right: 2em;
+			padding-right: 1em;
+		}
+		&__box-info-list:before {
+			content: "";
+			position: absolute;
+			right: 0;
+			width: 1px;
+			height: 100%;
+			background-color: $pure-white;
+		}
+		&__box-info-list:last-child::before {
+			display: none;
+		}
+	}
+}
+
+
+
+@media (min-width: 992px) {
+	.burger-btn {
+		display: none;
+	}
+	.navbar {
+		padding-right: 1.5em;
+		&__logo-text {
+			font-size: 1.6rem;
+		}
+		//desktop-list
+		&__desktop-list {
+			display: flex;
+			margin-top: 0.6em;
+			font-size: 1.6rem;
+		}
+		&__desktop-list-item {
+			position: relative;
+			margin-right: 1.5em;
+			color: $pure-white;
+			text-decoration: none;
+			text-transform: uppercase;
+			transition: color 0.3s;
+
+			&:hover {
+				color: $main-color;
+			}
+
+			&::before {
+				content: "";
+				position: absolute;
+				left: 0;
+				bottom: -4px;
+				width: 100%;
+				height: 3px;
+				background-color: $main-color;
+				transform: scaleX(0);
+				transition: transform 0.3s;
+			}
+			&:hover::before {
+				transform: scaleX(1);
+			}
+		}
+		.fa-right-to-bracket{
+			margin-top: -0.1em;
+			color: $pure-white;
+			font-size: 2.5rem;
+			cursor: pointer;
+			text-align: right;
+			transition: color 0.3s;
+
+			&:hover{
+				color: $main-color;
+			}
+		}
+	
+
+	}
+
+	.main {
+		.about-us {
+			&__box-text {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+			}
+			&__title {
+				font-size: 2rem;
+			}
+			&__text {
+				font-size: 1.6rem;
+			}
+		}
+		.team{
+			&__cards{
+				padding-right: 9.2em;
+			}
+			&__card{
+				min-width: 33.33%;
+			}
+		}
+		.reviews{
+			&__cards{
+				padding-right: 9.2em;
+			}
+			&__card{
+				min-width: 33.33%;
+			}
+		}
+
+	}
+}
+
+
+@media (min-width: 1200px) {
+	.navbar {
+		justify-content: space-around;
+		&__desktop-list {
+			font-size: 1.7rem;
+		}
+		&__logo-text{
+			font-size: 1.7rem;
+		}
+		.fa-right-to-bracket{
+			margin-top: -0.1;
+			font-size: 2.8rem;
+		}
+	}
+	.header {
+		&__box-title {
+			font-size: 4rem;
+		}
+		&__box-text {
+			font-size: 2rem;
+		}
+		&__box-btn {
+			font-size: 1.7rem;
+		}
+	}
+	.main {
+		.about-us {
+			&__title {
+				font-size: 2.2rem;
+			}
+			&__text {
+				font-size: 1.8rem;
+			}
+		}
+		.location {
+			&__box {
+				width: 28%;
+			}
+		}
+		.offer {
+			&__card {
+				width: 29%;
+			}
+		}
+	
+		
+		
+	
+	
+	}
+	.footer {
+		font-size: 1.7rem;
+
+		&__box-info-list-item {
+			margin-bottom: 1em;
+		}
+		&__box-heading {
+			font-size: 2.6rem;
+		}
+		&__box-social {
+			font-size: 3.8rem;
+
+			a {
+				margin-right: 1em;
+			}
+		}
+		&__logo {
+			font-size: 2rem;
+		}
+	}
+}
+
+@media(min-width: 1300px){
+	.main{
+		.reviews{
+			&__btn{
+				&-left{
+					left: -35px;
+				}
+				&-right{
+					right: -35px;
+				}
+			}
+		}
+	}
+}
+
+
+
+
+
+
+
+//Xmark
+.show-xmark {
+	top: 10px;
+	transform: rotate(45deg);
+	background-color: $black;
+	transition: transform 0.3s, position 0.3s;
+	&::before {
+		top: 0;
+		width: 100%;
+		transform: rotate(90deg);
+		background-color: $black;
+	}
+	&::after {
+		display: none;
+	}
+}
+
+//scrollspy
+.scrollspy {
+	animation: scrollspy 1s 3s forwards;
+}
+
+@keyframes scrollspy {
+	0% {
+		transform: translateX(0);
+		opacity: 1;
+	}
+
+	100% {
+		position: absolute;
+		transform: translateX(100%);
+		opacity: 0;
+	}
+}
